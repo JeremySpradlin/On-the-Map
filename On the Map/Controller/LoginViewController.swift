@@ -10,16 +10,32 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    //MARK: Outlet Declarations
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
+    
+    
+    
+    
+    //MARK: Button Actions
+    @IBAction func loginButton(_ sender: Any) {
+        print("loginButton Pressed")
     }
+    @IBAction func signupButton(_ sender: Any) {
+        print("signupButton Pressed")
+        let signupURL = URL(string: "https://auth.udacity.com/sign-up?")
+        let request = URLRequest(url: signupURL!)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WebSignupViewController") as! WebSignupViewController
+        
+        vc.urlRequest = request
+        print("Request added to vc")
+        
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        present(vc, animated: true, completion: nil)
     }
-
-
 }
 

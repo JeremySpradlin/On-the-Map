@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */; };
+		F83942F61FCCD99B000D6861 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */; };
 		F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */; };
 		F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */; };
 		F8BE7D631FC7F041006C140C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D611FC7F041006C140C /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSignupViewController.swift; sourceTree = "<group>"; };
+		F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		F8BE7D5A1FC7F041006C140C /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */,
+				F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */,
 				F8BE7D6F1FC7F303006C140C /* Model */,
 				F8BE7D701FC7F315006C140C /* View */,
 				F8BE7D711FC7F31F006C140C /* Controller */,
@@ -82,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */,
+				F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,8 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83942F61FCCD99B000D6861 /* GCDBlackBox.swift in Sources */,
 				F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */,
 				F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */,
+				F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

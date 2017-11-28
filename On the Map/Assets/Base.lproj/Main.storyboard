@@ -48,9 +48,30 @@
                                                 <state key="normal" title="Log In">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UcR-jt-CiD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="prD-BG-2Rb">
+                                <rect key="frame" x="68" y="353" width="238" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLg-Dc-HUT">
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82l-UU-2NK">
+                                        <rect key="frame" x="183" y="0.0" width="55" height="30"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signupButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KB0-pd-fuz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -58,13 +79,51 @@
                         <constraints>
                             <constraint firstItem="f6W-OV-oth" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="9rF-Kw-fkb"/>
                             <constraint firstItem="f6W-OV-oth" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CDa-3j-9Jm"/>
+                            <constraint firstItem="prD-BG-2Rb" firstAttribute="top" secondItem="f6W-OV-oth" secondAttribute="bottom" constant="15" id="bCU-u9-aJa"/>
+                            <constraint firstItem="prD-BG-2Rb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qDg-O0-UuZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="L0m-1k-f9T" id="RN1-0T-s5e"/>
+                        <outlet property="passwordTextField" destination="FB0-0S-w4z" id="Wte-ce-nVI"/>
+                        <outlet property="signupButton" destination="82l-UU-2NK" id="j9g-DH-7kG"/>
+                        <outlet property="usernameTextField" destination="Z85-t4-owg" id="LPc-27-ctJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
+        </scene>
+        <!--Web Signup View Controller-->
+        <scene sceneID="zEx-Hc-0XJ">
+            <objects>
+                <viewController storyboardIdentifier="WebSignupViewController" id="6xM-jl-CeE" customClass="WebSignupViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gfd-Sz-yS7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-5g-yPc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hhG-WU-kM9" firstAttribute="trailing" secondItem="5YT-5g-yPc" secondAttribute="trailing" id="2NS-7M-hF1"/>
+                            <constraint firstItem="5YT-5g-yPc" firstAttribute="top" secondItem="hhG-WU-kM9" secondAttribute="top" id="GId-cA-tJd"/>
+                            <constraint firstItem="hhG-WU-kM9" firstAttribute="bottom" secondItem="5YT-5g-yPc" secondAttribute="bottom" id="Qmm-bB-zGk"/>
+                            <constraint firstItem="5YT-5g-yPc" firstAttribute="leading" secondItem="hhG-WU-kM9" secondAttribute="leading" id="jN3-q3-E2C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hhG-WU-kM9"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5YT-5g-yPc" id="Q0e-Wr-0CU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6B-Id-nGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33" y="705"/>
         </scene>
     </scenes>
     <resources>
