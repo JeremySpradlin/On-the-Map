@@ -11,19 +11,26 @@ import UIKit
 
 class WebSignupViewController: UIViewController {
     
+    //MARK: Variable Declarations
     var urlRequest: URLRequest? = nil
     
+    //MARK: IBOutlet Declarations
     @IBOutlet weak var webView: UIWebView!
     
+    //MARK: Override Functions
+    //viewWillAppear will load the signup web page when the view appears
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Inside viewWillAppear")
-        
         if let urlRequest = urlRequest {
-            print("Inside if statement")
-            print(urlRequest)
             webView.loadRequest(urlRequest)
         }
     }
+    
+    //MARK: IBActions
+    //Cancel button will dismiss the web view controller when pressed
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 

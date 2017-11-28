@@ -21,21 +21,18 @@ class LoginViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func loginButton(_ sender: Any) {
-        print("loginButton Pressed")
+        UdacityClient.sharedInstance().getSessionID(uName: usernameTextField.text!, pWord: passwordTextField.text!)
     }
     @IBAction func signupButton(_ sender: Any) {
-        print("signupButton Pressed")
         let signupURL = URL(string: "https://auth.udacity.com/sign-up?")
         let request = URLRequest(url: signupURL!)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "WebSignupViewController") as! WebSignupViewController
         
         vc.urlRequest = request
-        print("Request added to vc")
-        
-
-        
         present(vc, animated: true, completion: nil)
     }
+    
+
 }
 
