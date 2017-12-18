@@ -10,7 +10,7 @@
 		F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */; };
 		F83942F61FCCD99B000D6861 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */; };
 		F83942FA1FCDE62E000D6861 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F91FCDE62E000D6861 /* UdacityClient.swift */; };
-		F83942FC1FCDE63D000D6861 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942FB1FCDE63D000D6861 /* UdacityConstants.swift */; };
+		F87ABF971FE7703C000CA23F /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABF961FE7703C000CA23F /* UdacityConvenience.swift */; };
 		F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */; };
 		F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */; };
 		F8BE7D631FC7F041006C140C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D611FC7F041006C140C /* Main.storyboard */; };
@@ -22,7 +22,7 @@
 		F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSignupViewController.swift; sourceTree = "<group>"; };
 		F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		F83942F91FCDE62E000D6861 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
-		F83942FB1FCDE63D000D6861 /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		F87ABF961FE7703C000CA23F /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 		F8BE7D5A1FC7F041006C140C /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				F83942F91FCDE62E000D6861 /* UdacityClient.swift */,
-				F83942FB1FCDE63D000D6861 /* UdacityConstants.swift */,
+				F87ABF961FE7703C000CA23F /* UdacityConvenience.swift */,
 			);
 			path = Udacity;
 			sourceTree = "<group>";
@@ -82,7 +82,7 @@
 				F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */,
 				F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */,
 				F8BE7D6F1FC7F303006C140C /* Model */,
-				F8BE7D701FC7F315006C140C /* View */,
+				F8C38EAD1FCF815600FA73EB /* View */,
 				F8BE7D711FC7F31F006C140C /* Controller */,
 				F8BE7D721FC7F362006C140C /* Assets */,
 				F8BE7D731FC7F4DA006C140C /* Supporting Files */,
@@ -96,13 +96,6 @@
 				F83942F71FCDB2ED000D6861 /* Clients */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F8BE7D701FC7F315006C140C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F8BE7D711FC7F31F006C140C /* Controller */ = {
@@ -130,6 +123,13 @@
 				F8BE7D691FC7F041006C140C /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8C38EAD1FCF815600FA73EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +209,7 @@
 				F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */,
 				F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */,
 				F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */,
-				F83942FC1FCDE63D000D6861 /* UdacityConstants.swift in Sources */,
+				F87ABF971FE7703C000CA23F /* UdacityConvenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,12 @@ class LoginViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func loginButton(_ sender: Any) {
-        UdacityClient.sharedInstance().getSessionID(uName: usernameTextField.text!, pWord: passwordTextField.text!)
+//        UdacityClient.sharedInstance().getSessionID(uName: usernameTextField.text!, pWord: passwordTextField.text!)
+//        UdacityClient.sharedInstance().getSessionID(uName: "spradlinjk@gmail.com", pWord: "L1lyBe!!e")
+
+        UdacityClient.sharedInstance().authenticate("spradlinjk@gmail.com", "L1lyBe!!e") { (success, error) in
+
+        }
     }
     @IBAction func signupButton(_ sender: Any) {
         let signupURL = URL(string: "https://auth.udacity.com/sign-up?")
