@@ -21,10 +21,20 @@ class LoginViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func loginButton(_ sender: Any) {
-//        UdacityClient.sharedInstance().getSessionID(uName: usernameTextField.text!, pWord: passwordTextField.text!)
-//        UdacityClient.sharedInstance().getSessionID(uName: "spradlinjk@gmail.com", pWord: "L1lyBe!!e")
 
         UdacityClient.sharedInstance().authenticate("spradlinjk@gmail.com", "L1lyBe!!e") { (success, error) in
+            performUIUpdatesOnMain {
+                if !success {
+                    print("Success")
+                } else {
+                    print("Not success")
+                    let alertController = UIAlertController(title: "iOScreator", message:
+                        "Hello, world!", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
 
         }
     }

@@ -21,35 +21,6 @@ class UdacityClient: NSObject {
         super.init()
     }
     
-//    func getSessionID(uName: String, pWord: String){
-//        var request = URLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.httpBody = "{\"udacity\": {\"username\": \"\(uName)\", \"password\": \"\(pWord)\"}}".data(using: .utf8)
-//
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: request) { data, response, error in
-//            if error != nil { // Handle error…
-//                return
-//            }
-//            let range = Range(5..<data!.count)
-//            let newData = data?.subdata(in: range) /* subset response data! */
-//            //print(String(data: newData!, encoding: .utf8)!)
-//            var parsedResult: AnyObject! = nil
-//            do {
-//                parsedResult = try JSONSerialization.jsonObject(with: newData!, options: .allowFragments) as AnyObject
-//            } catch {
-//                let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(newData)'"]
-//                print(userInfo)
-//            }
-//            print(request)
-//            print(parsedResult)
-//            //print(parsedResult[session])
-//        }
-//        task.resume()
-//    }
-    
     //Mark:  taskForPostMethod
     func taskForPostMethod(_ uName:String, _ pWord:String, completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
 
@@ -100,16 +71,20 @@ class UdacityClient: NSObject {
                 completionHandlerForPost(nil, NSError(domain: "getUserInfo", code: 1, userInfo: userInfo))
                 return
             }
-            //print(parsedResult)
             completionHandlerForPost(parsedResult as AnyObject, nil)
         }
 
         // 7. Start the request
         task.resume()
         return task
-
     }
-    
+    //Mark: taskForGetMethod
+//    func taskForGet(_ userID: String, completionHandlerForGet: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask) {
+//
+//    }
+    func taskForGetMethod(_ accountKey: String, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask{
+        
+    }
     class func sharedInstance() -> UdacityClient {
         struct Singleton {
             static var sharedInstance = UdacityClient()

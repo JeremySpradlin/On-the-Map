@@ -57,11 +57,14 @@ extension UdacityClient {
                 return
             }
             
-            //print(result)
 
             print("The session id is \(id)")
             
         }
+        
+    }
+    
+    func getUserinfo(_ accountKey: String, _ accountRegistered: Bool, _ sessionExpiration: String, _ sessionID: String, completionHandlerForUserInfo: @escaping (_ success: Bool, _ error: String) -> Void) {
         
     }
     
