@@ -24,12 +24,12 @@ class LoginViewController: UIViewController {
 
         UdacityClient.sharedInstance().authenticate("spradlinjk@gmail.com", "L1lyBe!!e") { (success, error) in
             performUIUpdatesOnMain {
-                if !success {
+                if success {
                     print("Success")
                 } else {
                     print("Not success")
-                    let alertController = UIAlertController(title: "iOScreator", message:
-                        "Hello, world!", preferredStyle: UIAlertControllerStyle.alert)
+                    let alertController = UIAlertController(title: "Login Failed", message:
+                        "Please check Username and Password and try again.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
                     
                     self.present(alertController, animated: true, completion: nil)

@@ -57,14 +57,53 @@ extension UdacityClient {
                 return
             }
             
-
-            print("The session id is \(id)")
-            
+            self.getUserinfo(key, registered, expiration, id, completionHandlerForUserInfo: completionHandlerForAuth)
         }
         
     }
     
-    func getUserinfo(_ accountKey: String, _ accountRegistered: Bool, _ sessionExpiration: String, _ sessionID: String, completionHandlerForUserInfo: @escaping (_ success: Bool, _ error: String) -> Void) {
+    func getUserinfo(_ accountKey: String, _ accountRegistered: Bool, _ sessionExpiration: String, _ sessionID: String, completionHandlerForUserInfo: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        
+        _ = UdacityClient.sharedInstance().taskForGetMethod(accountKey) { (result, error) in
+            
+            //Display Error Function
+            func displayError(_ error: String){
+                completionHandlerForUserInfo(false, error)
+                print(error)
+                print(result!)
+                return
+            }
+            
+            //Guard Functions
+            if error != nil {
+                completionHandlerForUserInfo(false, "Error occured getting user info.")
+            }
+            guard let result = result as? [String:Any] else {
+                displayError("Unable to find user data")
+                return
+            }
+            guard let user = result["user"] as? [String:Any] else {
+                displayError("Unable to find user in the result")
+                return
+            }
+            guard let firstName = user["first_name"] as? String else {
+                displayError("Unable to find first name in user.")
+                return
+            }
+            guard let lastName = user["last_name"] as? String else {
+                displayError("Unable to findn last name in user.")
+                return
+            }
+            
+            UdacityClient.sharedInstance().firstName = firstName
+            UdacityClient.sharedInstance().lastName = lastName
+            UdacityClient.sharedInstance().accountKey = accountKey
+            UdacityClient.sharedInstance().sessionID = sessionID
+            print("Saving account variables")
+            
+            completionHandlerForUserInfo(true, nil)
+            
+        }
         
     }
     

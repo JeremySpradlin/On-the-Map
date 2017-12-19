@@ -11,6 +11,7 @@
 		F83942F61FCCD99B000D6861 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */; };
 		F83942FA1FCDE62E000D6861 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F91FCDE62E000D6861 /* UdacityClient.swift */; };
 		F87ABF971FE7703C000CA23F /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABF961FE7703C000CA23F /* UdacityConvenience.swift */; };
+		F87ABF991FE8BE03000CA23F /* TopNavigationControllBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87ABF981FE8BE03000CA23F /* TopNavigationControllBar.swift */; };
 		F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */; };
 		F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */; };
 		F8BE7D631FC7F041006C140C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D611FC7F041006C140C /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		F83942F91FCDE62E000D6861 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		F87ABF961FE7703C000CA23F /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
+		F87ABF981FE8BE03000CA23F /* TopNavigationControllBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationControllBar.swift; sourceTree = "<group>"; };
 		F8BE7D5A1FC7F041006C140C /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BE7D5D1FC7F041006C140C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		F8C38EAD1FCF815600FA73EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F87ABF981FE8BE03000CA23F /* TopNavigationControllBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */,
 				F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */,
 				F87ABF971FE7703C000CA23F /* UdacityConvenience.swift in Sources */,
+				F87ABF991FE8BE03000CA23F /* TopNavigationControllBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
