@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
             performUIUpdatesOnMain {
                 if success {
                     print("Success")
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC")
+                    self.present(vc!, animated: true)
                 } else {
                     print("Not success")
                     let alertController = UIAlertController(title: "Login Failed", message:

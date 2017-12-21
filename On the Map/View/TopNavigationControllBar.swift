@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 class TopNavigationControllerBar: UINavigationBar {
+
+    //Need to subclass the navBar?
     
 }

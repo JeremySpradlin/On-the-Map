@@ -128,15 +128,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKz-IT-uWO" customClass="TopNavigationControllerBar" customModule="On_the_Map" customModuleProvider="target">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKz-IT-uWO" customClass="TopNavigationControllerBar" customModule="On_the_Map" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="6Z9-To-NIG"/>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dwM-o4-GsG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dwM-o4-GsG" firstAttribute="trailing" secondItem="S4n-C4-QhB" secondAttribute="trailing" id="Cbb-7e-3I6"/>
+                            <constraint firstItem="dwM-o4-GsG" firstAttribute="leading" secondItem="S4n-C4-QhB" secondAttribute="leading" id="KWv-Bb-YuN"/>
+                            <constraint firstItem="dwM-o4-GsG" firstAttribute="top" secondItem="NKz-IT-uWO" secondAttribute="bottom" id="SGZ-04-dbh"/>
+                            <constraint firstItem="S4n-C4-QhB" firstAttribute="bottom" secondItem="dwM-o4-GsG" secondAttribute="bottom" id="fKc-xa-pcy"/>
+                            <constraint firstItem="NKz-IT-uWO" firstAttribute="top" secondItem="S4n-C4-QhB" secondAttribute="top" id="ikZ-ye-gId"/>
+                            <constraint firstItem="NKz-IT-uWO" firstAttribute="trailing" secondItem="dwM-o4-GsG" secondAttribute="trailing" id="ikl-hH-sif"/>
+                            <constraint firstItem="NKz-IT-uWO" firstAttribute="leading" secondItem="dwM-o4-GsG" secondAttribute="leading" id="kz5-cl-HzO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S4n-C4-QhB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" selectedImage="icon_mapview-selected" id="mgl-4M-iqt"/>
@@ -148,7 +159,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="KlU-KW-Wjy">
             <objects>
-                <tabBarController id="an2-DE-sn6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="OnTheMapVC" id="an2-DE-sn6" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xn3-Pf-Bav">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
