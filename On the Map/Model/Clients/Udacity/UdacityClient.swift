@@ -24,7 +24,7 @@ class UdacityClient: NSObject {
     }
     
     //Mark:  taskForPostMethod
-    func taskForPostMethod(_ uName:String, _ pWord:String, completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func taskForPOSTMethod(_ uName:String, _ pWord:String, completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
 
         // 1/2/3. Build URL and configure the request
         var request = URLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
@@ -81,7 +81,7 @@ class UdacityClient: NSObject {
         return task
     }
     //Mark: taskForGetMethod
-    func taskForGetMethod(_ accountKey: String, completionHandlerForGet: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask{
+    func taskForGETtMethod(_ accountKey: String, completionHandlerForGet: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask{
         
         // 1/2/3. Build URL and configure the request
         let request = URLRequest(url: URL(string: "https://www.udacity.com/api/users/\(accountKey)")!)

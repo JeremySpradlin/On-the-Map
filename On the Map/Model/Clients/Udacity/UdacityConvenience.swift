@@ -13,7 +13,7 @@ extension UdacityClient {
     //Mark: Authenticate
     func authenticate(_ uName: String, _ pWord: String, completionHandlerForAuth: @escaping (_ success: Bool, _ errorString: String?) -> Void){
 
-        let authenticate = UdacityClient.sharedInstance().taskForPostMethod(uName, pWord) { (result, error) in
+        let authenticate = UdacityClient.sharedInstance().taskForPOSTMethod(uName, pWord) { (result, error) in
             
             //Display Error Function
             func displayError(_ error: String){
@@ -64,7 +64,7 @@ extension UdacityClient {
     
     func getUserinfo(_ accountKey: String, _ accountRegistered: Bool, _ sessionExpiration: String, _ sessionID: String, completionHandlerForUserInfo: @escaping (_ success: Bool, _ error: String?) -> Void) {
         
-        _ = UdacityClient.sharedInstance().taskForGetMethod(accountKey) { (result, error) in
+        _ = UdacityClient.sharedInstance().taskForGETtMethod(accountKey) { (result, error) in
             
             //Display Error Function
             func displayError(_ error: String){

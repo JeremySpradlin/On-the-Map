@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="1694" y="363"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Kit View Controller-->
         <scene sceneID="VkJ-q0-D36">
             <objects>
-                <viewController id="5Gz-oN-d6X" sceneMemberID="viewController">
+                <viewController id="5Gz-oN-d6X" customClass="MapKitViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s6h-V3-Z6u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,6 +151,9 @@
                         <viewLayoutGuide key="safeArea" id="S4n-C4-QhB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" selectedImage="icon_mapview-selected" id="mgl-4M-iqt"/>
+                    <connections>
+                        <outlet property="mapView" destination="dwM-o4-GsG" id="7P0-yj-FKJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4o-bj-opS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
