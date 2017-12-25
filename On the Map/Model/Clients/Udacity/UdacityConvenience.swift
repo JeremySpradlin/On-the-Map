@@ -99,7 +99,6 @@ extension UdacityClient {
             UdacityClient.sharedInstance().lastName = lastName
             UdacityClient.sharedInstance().accountKey = accountKey
             UdacityClient.sharedInstance().sessionID = sessionID
-            print("Saving account variables")
             
             completionHandlerForUserInfo(true, nil)
             

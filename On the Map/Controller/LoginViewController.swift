@@ -22,12 +22,13 @@ class LoginViewController: UIViewController {
     //MARK: Button Actions
     @IBAction func loginButton(_ sender: Any) {
 
-        UdacityClient.sharedInstance().authenticate("spradlinjk@gmail.com", "L1lyBe!!e") { (success, error) in
+        UdacityClient.sharedInstance().authenticate(usernameTextField.text!, passwordTextField.text!) { (success, error) in
             performUIUpdatesOnMain {
                 if success {
-                    print("Success")
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC")
-                    self.present(vc!, animated: true)
+                    print("Login Success")
+//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC")
+//                    self.present(vc!, animated: true)
+                    ParseClient.sharedInstance().getStudentLocations()
                 } else {
                     print("Not success")
                     let alertController = UIAlertController(title: "Login Failed", message:
