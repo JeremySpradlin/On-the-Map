@@ -106,6 +106,12 @@ class ParseClient: NSObject {
             } catch {
                 print("Error parsing JSON data")
             }
+//            guard let results = parsedResult?["results"] else {
+//                print("Unable to find results in parsedresult")
+//                return
+//            }
+//
+//            print(results)
             completionHandlerForGet(parsedResult as AnyObject, nil)
         }
         // 7. Start the request

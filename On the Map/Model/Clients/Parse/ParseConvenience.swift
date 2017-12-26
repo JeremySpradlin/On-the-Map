@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ParseClient {
     
@@ -25,16 +26,24 @@ extension ParseClient {
             if error != nil {
                 displayError("Error is not nil")
             }
-            guard let result = result as? [String:Any] else {
-                displayError("Unable to find data")
-                return
-            }
-            guard let results = result["firstName"] as? [String:Any] else {
+//            guard let result = result as? [String:Any] else {
+//                displayError("Unable to find data")
+//                return
+//            }
+            guard let results = result?["results"] as? [[String:Any]] else {
                 displayError("Unable to find results in result")
-                print(result)
                 return
             }
-            print(results)
+            //print(results)
+            for JSONObject in results {
+                
+                let location: StudentLocation = StudentLocation(location: JSONObject as [String:Any])
+                if location.firstName != "" {
+                    DataSource.sharedInstance.locations = [location]
+                }
+                
+            }
+            print(DataSource.sharedInstance.locations.count)
         }
         
     }
