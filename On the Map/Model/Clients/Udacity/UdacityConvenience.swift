@@ -94,7 +94,7 @@ extension UdacityClient {
                 displayError("Unable to findn last name in user.")
                 return
             }
-            
+            //TODO: Need to move stored information to the data source
             UdacityClient.sharedInstance().firstName = firstName
             UdacityClient.sharedInstance().lastName = lastName
             UdacityClient.sharedInstance().accountKey = accountKey
