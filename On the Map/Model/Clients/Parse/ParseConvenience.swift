@@ -26,15 +26,11 @@ extension ParseClient {
             if error != nil {
                 displayError("Error is not nil")
             }
-//            guard let result = result as? [String:Any] else {
-//                displayError("Unable to find data")
-//                return
-//            }
             guard let results = result?["results"] as? [[String:Any]] else {
                 displayError("Unable to find results in result")
                 return
             }
-            //print(results)
+            //For loop to cycle through for each JSONOBject in results and add the JSONObject to the array stored in the data source
             for JSONObject in results {
                 
                 let location: StudentLocation = StudentLocation(location: JSONObject as [String:Any])
@@ -43,7 +39,6 @@ extension ParseClient {
                 }
                 
             }
-            print(DataSource.sharedInstance.locations.count)
         }
         
     }
