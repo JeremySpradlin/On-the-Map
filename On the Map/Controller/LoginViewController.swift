@@ -28,21 +28,20 @@ class LoginViewController: UIViewController {
                     //TODO: need to add checks in for textfields/textfield delegates
                     // Add checks to determine whether or not internet connection exist
                     // Add activity monitor?
-//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC")
-//                    self.present(vc!, animated: true)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC") as! UITabBarController
+                    self.present(vc, animated: true)
                     ParseClient.sharedInstance().getStudentLocations()
                     //TODO: Need to move to separate function for testing if method succeeds before loading tableview and map
                     //Also need to move opening the tab view controller to the new function as well.
-                    
+
                 } else {
                     let alertController = UIAlertController(title: "Login Failed", message:
                         "Please check Username and Password and try again.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                    
+
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
-
         }
     }
     @IBAction func signupButton(_ sender: Any) {

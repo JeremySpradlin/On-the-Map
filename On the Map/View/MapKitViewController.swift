@@ -14,7 +14,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
-        print("ViewDidLoad")
+        
     }
     
 }
