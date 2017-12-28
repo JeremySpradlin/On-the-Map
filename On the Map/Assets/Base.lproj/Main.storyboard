@@ -95,17 +95,52 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="Oh3-oR-VNl">
             <objects>
-                <viewController id="Rww-SP-un5" sceneMemberID="viewController">
+                <viewController id="Rww-SP-un5" customClass="TableViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="58l-Y7-bph">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gR2-x6-e6M">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="uOL-y8-gW2"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XwN-ph-VZ3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" id="e8a-x5-8LZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e8a-x5-8LZ" id="N5P-lv-M5V">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Rww-SP-un5" id="eXA-Or-DaF"/>
+                                    <outlet property="delegate" destination="Rww-SP-un5" id="ydS-VX-cg9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XwN-ph-VZ3" firstAttribute="top" secondItem="gR2-x6-e6M" secondAttribute="bottom" id="6rH-xn-Gye"/>
+                            <constraint firstItem="gR2-x6-e6M" firstAttribute="trailing" secondItem="Dna-8d-T1v" secondAttribute="trailing" id="OVv-tw-tos"/>
+                            <constraint firstItem="Dna-8d-T1v" firstAttribute="bottom" secondItem="XwN-ph-VZ3" secondAttribute="bottom" id="Soh-Vl-w1u"/>
+                            <constraint firstItem="Dna-8d-T1v" firstAttribute="trailing" secondItem="XwN-ph-VZ3" secondAttribute="trailing" id="W6F-7l-lJm"/>
+                            <constraint firstItem="XwN-ph-VZ3" firstAttribute="leading" secondItem="Dna-8d-T1v" secondAttribute="leading" id="WI8-x0-f4u"/>
+                            <constraint firstItem="gR2-x6-e6M" firstAttribute="leading" secondItem="Dna-8d-T1v" secondAttribute="leading" id="luD-RS-5hN"/>
+                            <constraint firstItem="gR2-x6-e6M" firstAttribute="top" secondItem="Dna-8d-T1v" secondAttribute="top" id="udf-I1-7h2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Dna-8d-T1v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="icon_listview-selected" id="cKx-Bg-ykr"/>
+                    <tabBarItem key="tabBarItem" image="icon_listview-deselected" id="cKx-Bg-ykr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPI-Ng-sYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,10 +153,30 @@
                     <view key="view" contentMode="scaleToFill" id="BWg-TS-9gV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYl-iF-ObV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="gZv-hu-TgT"/>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UI5-tY-cd1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UI5-tY-cd1" firstAttribute="leading" secondItem="RPb-H8-F2S" secondAttribute="leading" id="7nq-IW-oMQ"/>
+                            <constraint firstItem="jYl-iF-ObV" firstAttribute="top" secondItem="RPb-H8-F2S" secondAttribute="top" id="8DZ-3c-ltJ"/>
+                            <constraint firstItem="jYl-iF-ObV" firstAttribute="trailing" secondItem="RPb-H8-F2S" secondAttribute="trailing" id="HAS-ww-m3m"/>
+                            <constraint firstItem="jYl-iF-ObV" firstAttribute="leading" secondItem="RPb-H8-F2S" secondAttribute="leading" id="Zxj-E6-DXz"/>
+                            <constraint firstItem="UI5-tY-cd1" firstAttribute="top" secondItem="jYl-iF-ObV" secondAttribute="bottom" id="iks-mQ-l1h"/>
+                            <constraint firstItem="UI5-tY-cd1" firstAttribute="trailing" secondItem="RPb-H8-F2S" secondAttribute="trailing" id="l5S-pV-2lE"/>
+                            <constraint firstItem="UI5-tY-cd1" firstAttribute="bottom" secondItem="RPb-H8-F2S" secondAttribute="bottom" id="pH1-47-AIP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RPb-H8-F2S"/>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="icon_mapview-selected" id="RwY-Ux-Fy6"/>
+                    <tabBarItem key="tabBarItem" image="icon_mapview-deselected" id="RwY-Ux-Fy6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HyA-k0-PI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,8 +247,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_listview-selected" width="75" height="50"/>
-        <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>
