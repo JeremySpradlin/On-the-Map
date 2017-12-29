@@ -15,31 +15,52 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
+    override func viewDidLoad() {
+        activityMonitor.isHidden = true
+    }
     
     
     
     //MARK: Button Actions
     @IBAction func loginButton(_ sender: Any) {
-
+        
+        activityMonitor.isHidden = false
+        loginButton.isHidden = true
+        accountLabel.isHidden = true
+        signupButton.isHidden = true
+        activityMonitor.startAnimating()
+        usernameTextField.isEnabled = false
+        passwordTextField.isEnabled = false
+        
         UdacityClient.sharedInstance().authenticate(usernameTextField.text!, passwordTextField.text!) { (success, error) in
             performUIUpdatesOnMain {
                 if success {
                     //TODO: need to add checks in for textfields/textfield delegates
                     // Add checks to determine whether or not internet connection exist
-                    // Add activity monitor?
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC") as! UITabBarController
-                    self.present(vc, animated: true)
-                    ParseClient.sharedInstance().getStudentLocations()
-                    //TODO: Need to move to separate function for testing if method succeeds before loading tableview and map
-                    //Also need to move opening the tab view controller to the new function as well.
-
+                    
+                    ParseClient.sharedInstance().getStudentLocations() { (success, error) in
+                        
+                        if success {
+                            print("success!")
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC") as! UITabBarController
+                            self.present(vc, animated: true)
+                        } else {
+                            print("No success")
+                        }
+                    }
                 } else {
                     let alertController = UIAlertController(title: "Login Failed", message:
                         "Please check Username and Password and try again.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-
                     self.present(alertController, animated: true, completion: nil)
+                    self.activityMonitor.stopAnimating()
+                    self.activityMonitor.isHidden = true
+                    self.loginButton.isHidden = false
+                    self.accountLabel.isHidden = false
+                    self.signupButton.isHidden = false
                 }
             }
         }
@@ -54,6 +75,8 @@ class LoginViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    
+
 
 }
 

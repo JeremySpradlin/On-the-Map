@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="f6W-OV-oth">
-                                <rect key="frame" x="62.5" y="70" width="250" height="268"/>
+                                <rect key="frame" x="62.5" y="70" width="250" height="296"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-du-I1h">
                                         <rect key="frame" x="94" y="0.0" width="62" height="62"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U4v-3n-ba7">
-                                        <rect key="frame" x="0.0" y="162" width="250" height="106"/>
+                                        <rect key="frame" x="0.0" y="162" width="250" height="134"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z85-t4-owg">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
@@ -42,8 +42,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dnD-Md-vtZ">
+                                                <rect key="frame" x="0.0" y="76" width="250" height="20"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0m-1k-f9T">
-                                                <rect key="frame" x="0.0" y="76" width="250" height="30"/>
+                                                <rect key="frame" x="0.0" y="104" width="250" height="30"/>
                                                 <color key="backgroundColor" red="0.14883103650000001" green="0.48855320349999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Log In">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,7 +60,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="prD-BG-2Rb">
-                                <rect key="frame" x="68" y="353" width="238" height="30"/>
+                                <rect key="frame" x="68" y="381" width="238" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLg-Dc-HUT">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
@@ -85,6 +88,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="accountLabel" destination="RLg-Dc-HUT" id="DRq-cC-yQg"/>
+                        <outlet property="activityMonitor" destination="dnD-Md-vtZ" id="9Lc-PT-G3r"/>
                         <outlet property="loginButton" destination="L0m-1k-f9T" id="RN1-0T-s5e"/>
                         <outlet property="passwordTextField" destination="FB0-0S-w4z" id="Wte-ce-nVI"/>
                         <outlet property="signupButton" destination="82l-UU-2NK" id="j9g-DH-7kG"/>
@@ -146,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="1697" y="440"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Kit View Controller-->
         <scene sceneID="4de-83-wbT">
             <objects>
-                <viewController id="Efk-AP-HVs" sceneMemberID="viewController">
+                <viewController id="Efk-AP-HVs" customClass="MapKitViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BWg-TS-9gV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,6 +182,9 @@
                         <viewLayoutGuide key="safeArea" id="RPb-H8-F2S"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="icon_mapview-deselected" id="RwY-Ux-Fy6"/>
+                    <connections>
+                        <outlet property="mapView" destination="UI5-tY-cd1" id="89l-Os-lKL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HyA-k0-PI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

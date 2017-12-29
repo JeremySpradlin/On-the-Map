@@ -19,14 +19,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Inside numberOfRows")
         return DataSource.sharedInstance.locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")
         let location = DataSource.sharedInstance.locations[(indexPath as NSIndexPath).row]
-        print("Inside cellForRowAt")
         cell?.textLabel?.text = location.firstName + " " + location.lastName
         return cell!
     }
