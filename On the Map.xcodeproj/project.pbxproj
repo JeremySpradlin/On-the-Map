@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F826865B1FF858DA00A494A6 /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F826865A1FF858DA00A494A6 /* NetworkModule.swift */; };
 		F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */; };
 		F83942F61FCCD99B000D6861 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */; };
 		F83942FA1FCDE62E000D6861 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83942F91FCDE62E000D6861 /* UdacityClient.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F826865A1FF858DA00A494A6 /* NetworkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
 		F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSignupViewController.swift; sourceTree = "<group>"; };
 		F83942F51FCCD99B000D6861 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		F83942F91FCDE62E000D6861 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				F8B1312D1FF1CE05003BFFCA /* Data */,
 				F83942F71FCDB2ED000D6861 /* Clients */,
+				F826865A1FF858DA00A494A6 /* NetworkModule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */,
 				F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */,
 				F87ABF971FE7703C000CA23F /* UdacityConvenience.swift in Sources */,
+				F826865B1FF858DA00A494A6 /* NetworkModule.swift in Sources */,
 				F87ABF991FE8BE03000CA23F /* TopNavigationControllBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

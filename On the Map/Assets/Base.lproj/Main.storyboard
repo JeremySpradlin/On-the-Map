@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
-        <!--Table View Controller-->
+        <!--List-->
         <scene sceneID="Oh3-oR-VNl">
             <objects>
                 <viewController id="Rww-SP-un5" customClass="TableViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,13 +145,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dna-8d-T1v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="icon_listview-deselected" id="cKx-Bg-ykr"/>
+                    <tabBarItem key="tabBarItem" title="List" image="icon_listview-deselected" id="cKx-Bg-ykr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPI-Ng-sYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1697" y="440"/>
         </scene>
-        <!--Map Kit View Controller-->
+        <!--Map-->
         <scene sceneID="4de-83-wbT">
             <objects>
                 <viewController id="Efk-AP-HVs" customClass="MapKitViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RPb-H8-F2S"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="icon_mapview-deselected" id="RwY-Ux-Fy6"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-deselected" id="RwY-Ux-Fy6"/>
                     <connections>
                         <outlet property="mapView" destination="UI5-tY-cd1" id="89l-Os-lKL"/>
                     </connections>
