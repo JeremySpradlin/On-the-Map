@@ -18,10 +18,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
-    
-    
-    
-    
     override func viewDidLoad() {
         activityMonitor.isHidden = true
         subscribeToKeyboardNotifications()
@@ -40,35 +36,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         //Start network activity animation
         self.manageLoginAnimation(shouldStart: true)
-        
-        UdacityClient.sharedInstance().authenticate("spradlinjk@gmail.com", "L1lyBe!!e") { (success, error) in
+        UdacityClient.sharedInstance().authenticate(usernameTextField.text!, passwordTextField.text!) { (success, error) in
             performUIUpdatesOnMain {
-                if success {
-                    //TODO: need to add checks in for textfields/textfield delegates
-                    // Add checks to determine whether or not internet connection exist
-                    
-                    //Start network activity animation
-                    self.manageLoginAnimation(shouldStart: true)
-                    
-                    if self.isInternetAvailable != .notReachable {
-                        print("Internet is Available")
-                    }
-                    
-                    ParseClient.sharedInstance().getStudentLocations() { (success, error) in
-                        if success {
-                            print("success!")
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC") as! UITabBarController
-                            self.present(vc, animated: true)
-                        } else {
-                            print("No success")
+                
+                if self.isInternetAvailable != .notReachable {
+                    if success {
+                        //Start network activity animation
+                        self.manageLoginAnimation(shouldStart: true)
+                        //Will run the getStudentLocations function, if sucessful will take the user to the main tab view controller
+                        ParseClient.sharedInstance().getStudentLocations() { (success, error) in
+                            if success {
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnTheMapVC") as! UITabBarController
+                                self.present(vc, animated: true)
+                                self.manageLoginAnimation(shouldStart: false)
+                            } else {
+                                self.displayLoginError(errorString: "Error obtaining data from server, please try again")
+                            }
                         }
+                    } else {
+                        self.displayLoginError(errorString: "Please check Username and Password and try again")
                     }
                 } else {
-                    let alertController = UIAlertController(title: "Login Failed", message:
-                        "Please check Username and Password and try again.", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                    self.manageLoginAnimation(shouldStart: false)
+                    self.displayLoginError(errorString: "Please check internet connection and try again")
                 }
             }
         }
@@ -103,6 +92,15 @@ extension LoginViewController {
         }
     }
     
+    //Function will take in a string and report an error message alert to the user
+    func displayLoginError(errorString: String) {
+        let alertController = UIAlertController(title: "Login Failed", message:
+            errorString, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+        self.manageLoginAnimation(shouldStart: false)
+    }
+    
     //Functions for managing the on-screen keyboard and keyboard delegate
     @objc func keyboardWillShow(_ notification:Notification) {
         view.frame.origin.y = -getKeyboardHeight(notification)/2
@@ -124,7 +122,7 @@ extension LoginViewController {
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
     

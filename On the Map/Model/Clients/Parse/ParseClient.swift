@@ -69,7 +69,7 @@ class ParseClient: NSObject {
     func taskForGETMethod(_ completionHandlerForGet: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask{
         
         // 1/2/3. Build the URL and configure the request
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=50")!)
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=10")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         
@@ -119,6 +119,8 @@ class ParseClient: NSObject {
         return task
     }
 
+    //Mark: taskForPutMethod
+    
     
     
     class func sharedInstance() -> ParseClient {

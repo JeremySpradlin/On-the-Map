@@ -13,6 +13,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     //Set tableview data source
     let locations = DataSource.sharedInstance.locations
     
+    //IBoutlet Declarations
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var logoutButton: UIButton!
+    
 //    override func viewDidLoad() {
 //        print("Locations count is " + String(locations.count))
 //        print("Original data source count is " + String(DataSource.sharedInstance.locations.count))
@@ -28,5 +32,32 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell?.textLabel?.text = location.firstName + " " + location.lastName
         return cell!
     }
+    
+    
+    
+    //Function will take in a string and report an error message alert to the user
+    func displayError(errorTitle: String, errorString: String) {
+        let alertController = UIAlertController(title: errorTitle, message:
+            errorString, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        logoutButton.isEnabled = false
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        UdacityClient.sharedInstance().taskForDeleteMethod(){ (success, error) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.logoutButton.isEnabled = true
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+                self.displayError(errorTitle: "Error", errorString: "Unable to log out")
+            }
+        }
+    }
+    
     
 }

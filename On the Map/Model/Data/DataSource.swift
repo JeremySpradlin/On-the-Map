@@ -12,7 +12,7 @@ class DataSource {
     
     //Mark: Variable Declaration
     static let sharedInstance = DataSource()
-    fileprivate var _locations = [StudentLocation]()
+    fileprivate var _locations = [StudentInformation]()
     fileprivate var _firstName: String? = nil
     fileprivate var _lastName: String? = nil
     fileprivate var _accountKey: String? = nil
@@ -21,7 +21,7 @@ class DataSource {
     //Mark: Get/Sets
     //Variable declaration for getting and setting stored data
     //locations - will set and return the location data downloaded from the Parse server
-    var locations: [StudentLocation] {
+    var locations: [StudentInformation] {
         get {
             return _locations
         }

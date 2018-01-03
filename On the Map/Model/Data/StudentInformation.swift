@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StudentLocation {
+class StudentInformation {
     
     //Mark: Location Information
     var createdAt: String

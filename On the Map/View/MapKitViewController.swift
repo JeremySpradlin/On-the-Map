@@ -12,10 +12,14 @@ import MapKit
 class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var addPinButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.isHidden = true
         mapView.showsUserLocation = true
         mapView.delegate = self
         mapView.setCenter(self.mapView.region.center, animated: true)
@@ -64,7 +68,35 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     //Mark:  Open location annotation link in safari.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let url = view.annotation?.subtitle
+        //let url = view.annotation?.subtitle
+    }
+    
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        logoutButton.isEnabled = false
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        UdacityClient.sharedInstance().taskForDeleteMethod(){ (success, error) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.logoutButton.isEnabled = true
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+                self.displayError(errorTitle: "Error", errorString: "Unable to log out")
+            }
+        }
+    }
+
+    @IBAction func addPinButtonTapped(_ sender: Any) {
+        print("Add pin button tapped!")
+    }
+    
+    //Function will take in a string and report an error message alert to the user
+    func displayError(errorTitle: String, errorString: String) {
+        let alertController = UIAlertController(title: errorTitle, message:
+            errorString, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
