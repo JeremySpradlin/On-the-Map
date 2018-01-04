@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -136,13 +138,46 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" id="e8a-x5-8LZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" id="e8a-x5-8LZ" customClass="StudentLocationCell" customModule="On_the_Map" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e8a-x5-8LZ" id="N5P-lv-M5V">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="Gk0-1U-w0Y">
+                                                    <rect key="frame" x="3" y="3" width="33" height="37"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hp-4k-mEn">
+                                                    <rect key="frame" x="35" y="3" width="340" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts0-gq-wc4">
+                                                    <rect key="frame" x="35" y="28" width="340" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="4Hp-4k-mEn" secondAttribute="trailing" id="0xJ-25-kcs"/>
+                                                <constraint firstAttribute="trailing" secondItem="ts0-gq-wc4" secondAttribute="trailing" id="3Gj-JA-vxk"/>
+                                                <constraint firstItem="Gk0-1U-w0Y" firstAttribute="width" secondItem="N5P-lv-M5V" secondAttribute="height" multiplier="33:43" id="FHo-Nx-ChD"/>
+                                                <constraint firstItem="Gk0-1U-w0Y" firstAttribute="centerX" secondItem="N5P-lv-M5V" secondAttribute="centerX" constant="-168" id="Ild-gg-BsC"/>
+                                                <constraint firstAttribute="bottom" secondItem="ts0-gq-wc4" secondAttribute="bottom" constant="3" id="ZYd-hF-mBf" userLabel="bottom = Student URL Label.bottom + 0"/>
+                                                <constraint firstItem="ts0-gq-wc4" firstAttribute="leading" secondItem="N5P-lv-M5V" secondAttribute="leading" constant="35" id="a4C-fw-4JA"/>
+                                                <constraint firstItem="Gk0-1U-w0Y" firstAttribute="centerY" secondItem="N5P-lv-M5V" secondAttribute="centerY" id="hgK-I3-QkK"/>
+                                                <constraint firstItem="4Hp-4k-mEn" firstAttribute="leading" secondItem="N5P-lv-M5V" secondAttribute="leading" constant="35" id="iKp-ez-iya"/>
+                                                <constraint firstItem="4Hp-4k-mEn" firstAttribute="top" secondItem="N5P-lv-M5V" secondAttribute="top" constant="3" id="nrn-FJ-MaO" userLabel="Student Name Label.top = top + 0"/>
+                                                <constraint firstItem="Gk0-1U-w0Y" firstAttribute="top" secondItem="N5P-lv-M5V" secondAttribute="topMargin" constant="-8" id="tZ6-wj-xOM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="studentNameLabel" destination="4Hp-4k-mEn" id="JET-fe-iFD"/>
+                                            <outlet property="studentURLLabel" destination="ts0-gq-wc4" id="T9O-iA-nwo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -175,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPI-Ng-sYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697" y="440"/>
+            <point key="canvasLocation" x="1696.8" y="439.43028485757122"/>
         </scene>
         <!--Map-->
         <scene sceneID="4de-83-wbT">
@@ -312,6 +347,7 @@
         <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>

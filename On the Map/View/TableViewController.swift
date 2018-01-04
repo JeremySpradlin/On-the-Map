@@ -17,22 +17,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var logoutButton: UIButton!
     
-//    override func viewDidLoad() {
-//        print("Locations count is " + String(locations.count))
-//        print("Original data source count is " + String(DataSource.sharedInstance.locations.count))
-//    }
+    override func viewDidLoad() {
+        activityIndicator.isHidden = true
+    }
     
+    //Mark: Tableview Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DataSource.sharedInstance.locations.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as? StudentLocationCell
         let location = DataSource.sharedInstance.locations[(indexPath as NSIndexPath).row]
-        cell?.textLabel?.text = location.firstName + " " + location.lastName
+        //cell?.textLabel?.text = location.firstName + " " + location.lastName
+        cell?.studentNameLabel.text = location.firstName + " " + location.lastName
+        cell?.studentURLLabel.text = location.mediaURL
+        
         return cell!
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = DataSource.sharedInstance.locations[indexPath.row].mediaURL
+        print("cell clicked")
+        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+    }
     
     
     //Function will take in a string and report an error message alert to the user
@@ -43,6 +49,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.present(alertController, animated: true, completion: nil)
     }
     
+    //Mark: IBAction Functions
+    //logoutButtonTapped - This function will activate once the lgout button is pressed.  If logout is successful it will dismiss the the tab view controller
     @IBAction func logoutButtonTapped(_ sender: Any) {
         logoutButton.isEnabled = false
         activityIndicator.isHidden = false
@@ -51,9 +59,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if success {
                 self.dismiss(animated: true, completion: nil)
             } else {
-                self.logoutButton.isEnabled = true
-                self.activityIndicator.isHidden = true
-                self.activityIndicator.stopAnimating()
+                performUIUpdatesOnMain {
+                    self.logoutButton.isEnabled = true
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                }
                 self.displayError(errorTitle: "Error", errorString: "Unable to log out")
             }
         }

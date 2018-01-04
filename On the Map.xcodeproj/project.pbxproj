@@ -23,6 +23,7 @@
 		F8BE7D651FC7F041006C140C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D641FC7F041006C140C /* Assets.xcassets */; };
 		F8BE7D681FC7F041006C140C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D661FC7F041006C140C /* LaunchScreen.storyboard */; };
 		F8EE14D71FF0A2610076CDE8 /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE14D61FF0A2610076CDE8 /* ParseConvenience.swift */; };
+		F8F2C9C31FFDDAA20032F76D /* StudentLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F2C9C21FFDDAA20032F76D /* StudentLocationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F8BE7D671FC7F041006C140C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BE7D691FC7F041006C140C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8EE14D61FF0A2610076CDE8 /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
+		F8F2C9C21FFDDAA20032F76D /* StudentLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				F8577B9E1FEC908A00F23A73 /* MapKitViewController.swift */,
 				F89BB8C51FF47D7A00216B10 /* TableViewController.swift */,
+				F8F2C9C21FFDDAA20032F76D /* StudentLocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				F8577B9F1FEC908A00F23A73 /* MapKitViewController.swift in Sources */,
 				F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */,
 				F8B131311FF1E52D003BFFCA /* DataSource.swift in Sources */,
+				F8F2C9C31FFDDAA20032F76D /* StudentLocationCell.swift in Sources */,
 				F8EE14D71FF0A2610076CDE8 /* ParseConvenience.swift in Sources */,
 				F8BE7D5E1FC7F041006C140C /* AppDelegate.swift in Sources */,
 				F83942F41FCC8E02000D6861 /* WebSignupViewController.swift in Sources */,

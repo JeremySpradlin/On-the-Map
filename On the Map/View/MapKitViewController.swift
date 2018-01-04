@@ -51,6 +51,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    //Mark: mapView functions
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "pin") as? MKPinAnnotationView
 
@@ -68,20 +69,27 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     //Mark:  Open location annotation link in safari.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //let url = view.annotation?.subtitle
+        let url = view.annotation?.subtitle
+        print("annotation clicked")
+        UIApplication.shared.open(NSURL(string: url!!)! as URL, options: [:], completionHandler: nil)
+
     }
     
+    //Mark: IBAction Functions
+    //logoutButtonTapped - This function will activate once the lgout button is pressed.  If logout is successful it will dismiss the the tab view controller
     @IBAction func logOutButtonTapped(_ sender: Any) {
         logoutButton.isEnabled = false
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         UdacityClient.sharedInstance().taskForDeleteMethod(){ (success, error) in
-            if success {
+            if !success {
                 self.dismiss(animated: true, completion: nil)
             } else {
-                self.logoutButton.isEnabled = true
-                self.activityIndicator.isHidden = true
-                self.activityIndicator.stopAnimating()
+                performUIUpdatesOnMain {
+                    self.logoutButton.isEnabled = true
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                }
                 self.displayError(errorTitle: "Error", errorString: "Unable to log out")
             }
         }
