@@ -36,7 +36,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = DataSource.sharedInstance.locations[indexPath.row].mediaURL
-        print("cell clicked")
         UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
     }
     
@@ -67,6 +66,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.displayError(errorTitle: "Error", errorString: "Unable to log out")
             }
         }
+    }
+    @IBAction func addPinButtonTapped(_ sender: Any) {
+        print("Add pin button tapped!")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "addLocationViewController")
+        present(vc!, animated: true)
     }
     
     

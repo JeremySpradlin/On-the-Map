@@ -96,9 +96,8 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func addPinButtonTapped(_ sender: Any) {
-        print("Add pin button tapped!")
-        let vc = storyboard?.instantiateViewController(withIdentifier: "addLocationNavController") as! UINavigationController
-        present(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "addLocationViewController")
+        self.present(vc!, animated: true)
     }
     
     //Function will take in a string and report an error message alert to the user

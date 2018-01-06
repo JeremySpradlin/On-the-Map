@@ -22,6 +22,8 @@
 		F8BE7D631FC7F041006C140C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D611FC7F041006C140C /* Main.storyboard */; };
 		F8BE7D651FC7F041006C140C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D641FC7F041006C140C /* Assets.xcassets */; };
 		F8BE7D681FC7F041006C140C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BE7D661FC7F041006C140C /* LaunchScreen.storyboard */; };
+		F8C4E0F11FFFD74E005053A9 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4E0F01FFFD74E005053A9 /* AddLocationViewController.swift */; };
+		F8C4E0F31FFFD7D8005053A9 /* ConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4E0F21FFFD7D8005053A9 /* ConfirmLocationViewController.swift */; };
 		F8EE14D71FF0A2610076CDE8 /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE14D61FF0A2610076CDE8 /* ParseConvenience.swift */; };
 		F8F2C9C31FFDDAA20032F76D /* StudentLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F2C9C21FFDDAA20032F76D /* StudentLocationCell.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		F8BE7D641FC7F041006C140C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8BE7D671FC7F041006C140C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BE7D691FC7F041006C140C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C4E0F01FFFD74E005053A9 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		F8C4E0F21FFFD7D8005053A9 /* ConfirmLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLocationViewController.swift; sourceTree = "<group>"; };
 		F8EE14D61FF0A2610076CDE8 /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 		F8F2C9C21FFDDAA20032F76D /* StudentLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,7 +143,11 @@
 			isa = PBXGroup;
 			children = (
 				F8BE7D5F1FC7F041006C140C /* LoginViewController.swift */,
+				F8577B9E1FEC908A00F23A73 /* MapKitViewController.swift */,
+				F89BB8C51FF47D7A00216B10 /* TableViewController.swift */,
 				F83942F31FCC8E02000D6861 /* WebSignupViewController.swift */,
+				F8C4E0F01FFFD74E005053A9 /* AddLocationViewController.swift */,
+				F8C4E0F21FFFD7D8005053A9 /* ConfirmLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,8 +173,6 @@
 		F8C38EAD1FCF815600FA73EB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F8577B9E1FEC908A00F23A73 /* MapKitViewController.swift */,
-				F89BB8C51FF47D7A00216B10 /* TableViewController.swift */,
 				F8F2C9C21FFDDAA20032F76D /* StudentLocationCell.swift */,
 			);
 			path = View;
@@ -248,9 +254,11 @@
 				F8B1312F1FF1CE24003BFFCA /* StudentInformation.swift in Sources */,
 				F89BB8C61FF47D7A00216B10 /* TableViewController.swift in Sources */,
 				F83942FA1FCDE62E000D6861 /* UdacityClient.swift in Sources */,
+				F8C4E0F31FFFD7D8005053A9 /* ConfirmLocationViewController.swift in Sources */,
 				F83942F61FCCD99B000D6861 /* GCDBlackBox.swift in Sources */,
 				F8577B9F1FEC908A00F23A73 /* MapKitViewController.swift in Sources */,
 				F8BE7D601FC7F041006C140C /* LoginViewController.swift in Sources */,
+				F8C4E0F11FFFD74E005053A9 /* AddLocationViewController.swift in Sources */,
 				F8B131311FF1E52D003BFFCA /* DataSource.swift in Sources */,
 				F8F2C9C31FFDDAA20032F76D /* StudentLocationCell.swift in Sources */,
 				F8EE14D71FF0A2610076CDE8 /* ParseConvenience.swift in Sources */,
