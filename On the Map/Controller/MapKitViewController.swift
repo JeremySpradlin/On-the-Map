@@ -33,25 +33,25 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     //Mark: Create the location pins and place them on the map
     func createPins() {
-        
+
         let locations = DataSource.sharedInstance.locations
         for location in locations {
-            
+
             let lat = CLLocationDegrees(location.latitude)
             let long = CLLocationDegrees(location.longitude)
             let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            
+
             let annotation = MKPointAnnotation()
             annotation.coordinate = coord
             let userName = location.firstName + " " + location.lastName
             annotation.title = userName
             annotation.subtitle = location.mediaURL
             mapView.addAnnotation(annotation)
-            
+
         }
     }
     
-    //Mark: mapView functions
+    //Mark: mapView functions - This function will customize the look of the pin placed on the map
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "pin") as? MKPinAnnotationView
 
@@ -62,7 +62,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         } else {
             pin?.annotation = annotation
         }
-
+        
         return pin
     }
     
@@ -82,7 +82,7 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         UdacityClient.sharedInstance().taskForDeleteMethod(){ (success, error) in
-            if !success {
+            if success {
                 self.dismiss(animated: true, completion: nil)
             } else {
                 performUIUpdatesOnMain {

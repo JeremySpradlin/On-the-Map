@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
+
 
 class AddLocationViewController: UIViewController {
     
@@ -31,9 +34,14 @@ class AddLocationViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func findLocationButtonTapped(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "confirmLocationMapViewController")
-        present(vc!, animated: true, completion: nil)
+        
+        let studentURL = "www.google.com"
+        let address = "United States, Coral Springs, Florida"
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "confirmLocationMapViewController") as! ConfirmLocationViewController
+        vc.address = address
+        vc.studentURL = studentURL
+        present(vc, animated: true, completion: nil)
     }
-    
     
 }

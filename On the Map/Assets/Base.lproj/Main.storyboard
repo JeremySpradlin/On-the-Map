@@ -220,33 +220,6 @@
             </objects>
             <point key="canvasLocation" x="1696.8" y="439.43028485757122"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="myj-xZ-EcT">
-            <objects>
-                <viewController storyboardIdentifier="testViewController" id="JZI-gb-Ex5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zOn-0o-Sfl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSg-Uk-5pk">
-                                <rect key="frame" x="171" y="333" width="32.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="SSg-Uk-5pk" firstAttribute="centerY" secondItem="D1Z-8Y-0G2" secondAttribute="centerY" id="Zjy-HN-kIr"/>
-                            <constraint firstItem="SSg-Uk-5pk" firstAttribute="centerX" secondItem="D1Z-8Y-0G2" secondAttribute="centerX" id="vKh-BU-Ref"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="D1Z-8Y-0G2"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xss-Rp-kbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2714" y="831"/>
-        </scene>
         <!--Map-->
         <scene sceneID="4de-83-wbT">
             <objects>
@@ -458,6 +431,7 @@
                     <connections>
                         <outlet property="backButton" destination="wn3-Iw-B9t" id="6LC-Ve-adc"/>
                         <outlet property="finishButton" destination="FS5-Nq-lt5" id="H2B-vr-1IW"/>
+                        <outlet property="mapView" destination="RSi-4f-tXh" id="ZAi-Hj-KVH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBX-b7-nvC" userLabel="First Responder" sceneMemberID="firstResponder"/>
