@@ -22,7 +22,8 @@ class ParseClient: NSObject {
     func taskForPOSTMethod(_ uniqueKey: String, _ firstName: String, _ lastName: String, _ mapString: String, _ mediaURL: String, _ lat: Double, _ long: Double, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask{
         
         // 1/2/3. Build the URL and configure the request
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/pasrse/classes/StudentLocation")!)
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        request.httpMethod = "POST"
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -45,6 +46,8 @@ class ParseClient: NSObject {
             }
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 sendError("Your request returned a status code other than 2XX")
+                print((response as? HTTPURLResponse)?.statusCode)
+
                 return
             }
             guard let data = data else {
