@@ -159,14 +159,8 @@
                                                             <rect key="frame" x="50" y="0.0" width="325" height="74.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Student Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hp-4k-mEn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="62.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="74.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts0-gq-wc4">
-                                                                    <rect key="frame" x="0.0" y="62.5" width="325" height="12"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -184,7 +178,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="studentNameLabel" destination="4Hp-4k-mEn" id="JET-fe-iFD"/>
-                                            <outlet property="studentURLLabel" destination="ts0-gq-wc4" id="T9O-iA-nwo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -413,9 +406,14 @@
                                     <action selector="finishButtonTapped:" destination="KTD-Bq-244" eventType="touchUpInside" id="iB0-ga-MOv"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Dyo-PO-FL4">
+                                <rect key="frame" x="177" y="355.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Dyo-PO-FL4" firstAttribute="centerX" secondItem="RSi-4f-tXh" secondAttribute="centerX" id="2fA-TI-cdQ"/>
+                            <constraint firstItem="Dyo-PO-FL4" firstAttribute="centerY" secondItem="RSi-4f-tXh" secondAttribute="centerY" id="6le-qK-fQp"/>
                             <constraint firstItem="PH0-dM-864" firstAttribute="leading" secondItem="Bxr-Yn-wMj" secondAttribute="leading" id="7gJ-6W-tIj"/>
                             <constraint firstItem="PH0-dM-864" firstAttribute="top" secondItem="Bxr-Yn-wMj" secondAttribute="top" id="BWm-5N-mR1"/>
                             <constraint firstItem="RSi-4f-tXh" firstAttribute="bottom" secondItem="Bxr-Yn-wMj" secondAttribute="bottom" id="Cv0-NZ-j0C"/>
@@ -429,6 +427,7 @@
                         <viewLayoutGuide key="safeArea" id="Bxr-Yn-wMj"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Dyo-PO-FL4" id="9r2-4v-z8G"/>
                         <outlet property="backButton" destination="wn3-Iw-B9t" id="6LC-Ve-adc"/>
                         <outlet property="finishButton" destination="FS5-Nq-lt5" id="H2B-vr-1IW"/>
                         <outlet property="mapView" destination="RSi-4f-tXh" id="ZAi-Hj-KVH"/>

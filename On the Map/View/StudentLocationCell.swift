@@ -11,7 +11,6 @@ import UIKit
 class StudentLocationCell: UITableViewCell {
     
     @IBOutlet weak var studentNameLabel: UILabel!
-    @IBOutlet weak var studentURLLabel: UILabel!
     
     
 }

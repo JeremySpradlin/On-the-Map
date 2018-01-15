@@ -35,7 +35,6 @@ extension ParseClient {
             }
             //For loop to cycle through for each JSONOBject in results and add the JSONObject to the array stored in the data source
             for JSONObject in results {
-                self.counter = self.counter + 1
                 let location: StudentInformation = StudentInformation(location: JSONObject as [String:Any])
                 if location.firstName != "" {
                     DataSource.sharedInstance.locations = [location]

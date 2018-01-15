@@ -36,7 +36,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         //Start network activity animation
         self.manageLoginAnimation(shouldStart: true)
-        UdacityClient.sharedInstance().authenticate("", "") { (success, error) in
+        UdacityClient.sharedInstance().authenticate(usernameTextField.text, passwordTextField.text) { (success, error) in
             performUIUpdatesOnMain {
                 
                 if self.isInternetAvailable != .notReachable {

@@ -14,9 +14,9 @@ import MapKit
 
 class AddLocationViewController: UIViewController {
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     //Mark: Outlet Declarations
     @IBOutlet weak var cancelButton: UIButton!
@@ -24,24 +24,52 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var URLTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
     
-    
-    
-    
-    
-    
     //Mark: IB Action Functions
     @IBAction func cancelButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func findLocationButtonTapped(_ sender: Any) {
         
-        let studentURL = "www.google.com"
-        let address = "United States, Coral Springs, Florida"
+        let studentURL = URLTextField.text
+        let address = locationTextField.text
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "confirmLocationMapViewController") as! ConfirmLocationViewController
         vc.address = address
         vc.studentURL = studentURL
         present(vc, animated: true, completion: nil)
     }
+
+}
+
+extension AddLocationViewController {
     
+    //Functions for managing the on-screen keyboard and keyboard delegate
+    @objc func keyboardWillShow(_ notification:Notification) {
+        view.frame.origin.y = -getKeyboardHeight(notification)/2
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillDisappear(_ notification:Notification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
+    }
 }

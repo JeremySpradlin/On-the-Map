@@ -28,15 +28,21 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as? StudentLocationCell
         let location = DataSource.sharedInstance.locations[(indexPath as NSIndexPath).row]
-        //cell?.textLabel?.text = location.firstName + " " + location.lastName
         cell?.studentNameLabel.text = location.firstName + " " + location.lastName
-        cell?.studentURLLabel.text = location.mediaURL
+        //cell?.studentURLLabel.text = location.mediaURL
         
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = DataSource.sharedInstance.locations[indexPath.row].mediaURL
-        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+        if url.contains("https://") || url.contains("http://") {
+            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+        } else {
+            displayError(errorTitle: "Invalid URL", errorString: "URL is not formatted correctly!")
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
     
@@ -68,7 +74,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     @IBAction func addPinButtonTapped(_ sender: Any) {
-        print("Add pin button tapped!")
         let vc = storyboard?.instantiateViewController(withIdentifier: "addLocationViewController")
         present(vc!, animated: true)
     }

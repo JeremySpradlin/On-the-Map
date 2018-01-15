@@ -15,7 +15,6 @@ class ParseClient: NSObject {
     let parseRestAPIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     let session = URLSession.shared
     
-    var counter = 0
 
 
     //Mark: taskForPOSTMethod
@@ -75,7 +74,7 @@ class ParseClient: NSObject {
     func taskForGETMethod(_ completionHandlerForGet: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void ) -> URLSessionDataTask{
         
         // 1/2/3. Build the URL and configure the request
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=20")!)
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         
@@ -109,7 +108,6 @@ class ParseClient: NSObject {
             var parsedResult: [String:AnyObject]! = nil
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
-                print(parsedResult)
             } catch {
                 print("Error parsing JSON data")
             }

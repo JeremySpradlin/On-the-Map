@@ -18,6 +18,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //Variable declaration for user posting
     var userID: String = DataSource.sharedInstance.sessionID
@@ -34,14 +35,19 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         mapView.showsUserLocation = true
         mapView.delegate = self
         CLGeocoder().geocodeAddressString(address){ (placemark, error) in
             
             guard error == nil else {
-                print("Error getting geocode address")
+                self.displayError(errorTitle: "Error", errorString: "Location Not Found!")
+                self.dismiss(animated: true, completion: nil)
                 return
             }
+            
+            self.processResponse(withPlacemarks: placemark, error: error)
             
             let annotation = MKPointAnnotation()
             annotation.coordinate = (placemark?.first?.location?.coordinate)!
@@ -52,6 +58,9 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
             self.mapView.setRegion(region, animated: true)
             self.mapView.addAnnotation(annotation)
             
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            
         }
         
     }
@@ -59,7 +68,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
         
         if error != nil {
-            print("There was an error")
+            displayError(errorTitle: "Error", errorString: "Error getting location")
         } else {
             
             if let placemarks = placemarks, placemarks.count > 0 {
@@ -67,12 +76,10 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
             }
             
             if let location = location {
-                let coordinate = location.coordinate
                 lat = Double(location.coordinate.latitude)
                 long = Double(location.coordinate.longitude)
-                
             } else {
-                print("No matching location found")
+                displayError(errorTitle: "Error", errorString: "Location not found")
             }
         }
     }
@@ -98,17 +105,38 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func finishButtonTapped(_ sender: Any) {
-        print("finishButtonTapped")
-        
+        mapView.alpha = 0.5
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         ParseClient.sharedInstance().postUserLocation(userID, firstName, lastName, address, studentURL, lat, long) { (success, error) -> Void in
-            
+
             if success {
-                print("Successful Posting!")
+                performUIUpdatesOnMain {
+                    self.mapView.alpha = 1.0
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                }
+
+                self.displayError(errorTitle: "Success!", errorString: "Your location posted successfully!")
+                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                
             } else {
-                print("Not successful Posting")
+                performUIUpdatesOnMain {
+                    self.mapView.alpha = 1.0
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                }
+                
+                self.displayError(errorTitle: "Error", errorString: "your location failed to post.")
             }
-            
         }
-        
+    }
+    
+    //Function will take in a string and report an error message alert to the user
+    func displayError(errorTitle: String, errorString: String) {
+        let alertController = UIAlertController(title: errorTitle, message:
+            errorString, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
 }
