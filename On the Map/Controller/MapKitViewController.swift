@@ -27,8 +27,9 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        mapView.removeAnnotations(mapView.annotations)
         createPins()
-        
+        mapView.addAnnotations(mapView.annotations)
     }
     
     //Mark: Create the location pins and place them on the map
@@ -70,8 +71,6 @@ class MapKitViewController: UIViewController, MKMapViewDelegate {
     //Mark:  Open location annotation link in safari.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let url = view.annotation?.subtitle
-//        print("annotation clicked")
-//        UIApplication.shared.open(NSURL(string: url!!)! as URL, options: [:], completionHandler: nil)
 
         if (url??.contains("https://"))! || (url??.contains("http://"))! {
             UIApplication.shared.open(URL(string: url as! String)!, options: [:], completionHandler: nil)

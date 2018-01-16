@@ -12,17 +12,24 @@ import CoreLocation
 import MapKit
 
 
-class AddLocationViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     //Mark: Outlet Declarations
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var URLTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        subscribeToKeyboardNotifications()
+        locationTextField.delegate = self
+        URLTextField.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
+    }
     
     //Mark: IB Action Functions
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -69,7 +76,7 @@ extension AddLocationViewController {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        return false
+        textField.resignFirstResponder()
+        return true
     }
 }
