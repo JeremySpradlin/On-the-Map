@@ -111,28 +111,25 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         ParseClient.sharedInstance().postUserLocation(userID, firstName, lastName, address, studentURL, lat, long) { (success, error) -> Void in
 
             if success {
-
                 ParseClient.sharedInstance().getStudentLocations() { (success, error) in
                     if success {
                         performUIUpdatesOnMain {
                             self.mapView.alpha = 1.0
                             self.activityIndicator.stopAnimating()
                             self.activityIndicator.isHidden = true
+                            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                         }
-                        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
                     } else {
                         self.displayError(errorTitle: "Error", errorString: "Error retrieving new data")
                     }
                 }
-
-                
             } else {
                 performUIUpdatesOnMain {
                     self.mapView.alpha = 1.0
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.isHidden = true
                 }
-                
                 self.displayError(errorTitle: "Error", errorString: "Your location failed to post.")
             }
         }

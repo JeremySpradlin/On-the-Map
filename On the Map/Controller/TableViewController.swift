@@ -12,6 +12,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //Set tableview data source
     let locations = DataSource.sharedInstance.locations
+    @IBOutlet weak var tableView: UITableView!
     
     //IBoutlet Declarations
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -20,6 +21,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         activityIndicator.isHidden = true
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     
     //Mark: Tableview Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
